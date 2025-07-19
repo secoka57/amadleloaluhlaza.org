@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staff - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --green: #4a9e4a;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f3f8;
+      margin: 0;
+      color: var(--navy);
+    }
+
+    header,
+    nav {
+      background: var(--white);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 10px;
+    }
+
+    header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      margin-inline-start: 1rem;
+    }
+
+    #motto {
+      margin-inline-start: 1rem;
+      font-style: italic;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    nav {
+      inline-size: 100%;
+      border-block-start: 2px solid var(--green);
+      gap: 1.5rem;
+      margin-block-start: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--green);
+    }
+
+    main {
+      max-inline-size: 1100px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .staff-section {
+      margin-block-start: 2rem;
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-block-start: 1rem;
+    }
+
+    .card {
+      background: #f9fafc;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+    }
+
+    .card img {
+      inline-size: 100px;
+      block-size: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid var(--navy);
+      margin-block-end: 0.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-block-start: 0.3rem;
+    }
+
+    .info {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Bounce animation */
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-12px);
+      }
+
+      60% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* Popup Styles */
+    #welcome-popup {
+      position: fixed;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--white);
+      border: 3px solid var(--green);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.25);
+      max-inline-size: 320px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--navy);
+      z-index: 1000;
+      display: none;
+    }
+
+    #welcome-popup button {
+      margin-block-start: 1.5rem;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #welcome-popup button:hover {
+      background: #357a35;
+    }
+
+    /* Overlay behind popup */
+    #popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo" class="logo" />
+    <h2>Amadlelo Aluhlaza Secondary School</h2>
+    <p id="motto">"Rising With Strength & Success"</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html" aria-current="page">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+  </nav>
+
+  <main>
+    <h1>Our School Staff</h1>
+
+    <!-- SMT -->
+    <section class="staff-section">
+      <h2>School Management Team (SMT)</h2>
+      <div class="staff-grid">
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">#</div>
+          <div class="info">Principal</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mhlanga MGT</div>
+          <div class="info">Deputy Principal</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Vilakazi SI</div>
+          <div class="info">HOD - Sciences</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Hlatshwayo WS</div>
+          <div class="info">HOD - Humanities</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Ndlangamandla NG</div>
+          <div class="info">HOD - Languages</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Dlamini ME</div>
+          <div class="info">HOD - Mathematics</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mkhaliphi TCS</div>
+          <div class="info">HOD - Commercials</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educators -->
+    <section class="staff-section">
+      <h2>Educators</h2>
+      <div class="staff-grid">
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Masala M</div>
+          <div class="info">Grade 8 - B7</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Shoyisa T</div>
+          <div class="info">Grade 8 - B8</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mkhwanazi N</div>
+          <div class="info">Grade 8 - B8</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mthethwa STP</div>
+          <div class="info">Grade 9 - B2</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mazibuko MB</div>
+          <div class="info">Grade 9 - B3</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nkabinde SJ</div>
+          <div class="info">Grade 9 - B4</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nkosi NT</div>
+          <div class="info">Grade 10 - E1</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Makhubu NP</div>
+          <div class="info">Grade 10 - E25</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Zwane PM</div>
+          <div class="info">Grade 10 - E28</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Motha AN</div>
+          <div class="info">Grade 10 - E4</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Jobe L</div>
+          <div class="info">Grade 10 - F9</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Maja GC</div>
+          <div class="info">Grade 11 - E27</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nyawo NH</div>
+          <div class="info">Grade 11 - E29</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mthembu P</div>
+          <div class="info">Grade 11 - F1</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Msimango SS</div>
+          <div class="info">Grade 11 - F17</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Zwane SS</div>
+          <div class="info">Grade 12 - B13</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nkosi MI</div>
+          <div class="info">Grade 12 - B14</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Makhathini GM</div>
+          <div class="info">Grade 12 - B15</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Khaba SI</div>
+          <div class="info">Grade 12 - B18</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Makhathini N</div>
+          <div class="info">Grade 12 - B19</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Magagula ST</div>
+          <div class="info">Grade 12 - B20</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Staff -->
+    <section class="staff-section">
+      <h2>Support Staff</h2>
+      <div class="staff-grid">
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Ms. Silindile</div>
+          <div class="info">Administrator</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mr. B. Mtshalinsthali</div>
+          <div class="info">Caretaker</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mrs. L. Mthembu</div>
+          <div class="info">Clerk</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SGB Members -->
+    <section class="staff-section">
+      <h2>School Governing Body (SGB)</h2>
+      <div class="staff-grid">
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Coka SE</div>
+          <div class="info">Chairperson</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Dudu</div>
+          <div class="info">Vice Chairperson</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nhlabathi DH</div>
+          <div class="info">Secretary</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mtshali CX</div>
+          <div class="info">Treasurer</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Hlophe ZS</div>
+          <div class="info">Deputy Secretary</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Dube N</div>
+          <div class="info">Member</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Nkosi N</div>
+          <div class="info">Member</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mtshali T</div>
+          <div class="info">Member</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mthethwa R</div>
+          <div class="info">Member</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Cele T</div>
+          <div class="info">Member</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RCL Members -->
+    <section class="staff-section">
+      <h2>Representative Council of Learners (RCL)</h2>
+      <div class="staff-grid">
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Dlamini S</div>
+          <div class="info">Chairperson</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mthembu K</div>
+          <div class="info">Deputy Chairperson</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Ngcobo T</div>
+          <div class="info">Secretary</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Zulu M</div>
+          <div class="info">Treasurer</div>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo">
+          <div class="name">Mkhize N</div>
+          <div class="info">Member</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School | P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380 | Tel: 071 697 6607
+  </footer>
+
+  <!-- Popup Overlay -->
+  <div id="popup-overlay"></div>
+
+  <!-- Welcome Popup -->
+  <div id="welcome-popup" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <h2 id="welcome-title">Welcome to Amadlelo Aluhlaza Secondary School!</h2>
+    <p>Meet our dedicated staff who make learning possible.</p>
+    <button id="close-popup" aria-label="Close welcome message">Got it!</button>
+  </div>
+
+  <script>
+    // Show popup once per day using localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const popup = document.getElementById('welcome-popup');
+      const overlay = document.getElementById('popup-overlay');
+      const closeBtn = document.getElementById('close-popup');
+
+      function showPopup() {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+      }
+
+      function hidePopup() {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+        // Save today's date to localStorage so popup won't show again today
+        localStorage.setItem('staffWelcomeLastShown', new Date().toDateString());
+      }
+
+      // Check last shown date
+      const lastShown = localStorage.getItem('staffWelcomeLastShown');
+      const today = new Date().toDateString();
+
+      if (lastShown !== today) {
+        showPopup();
+      }
+
+      closeBtn.addEventListener('click', hidePopup);
+      overlay.addEventListener('click', hidePopup);
+
+      // Accessibility: close popup on Escape key
+      document.addEventListener('keydown', (e) => {
+        if ((e.key === 'Escape' || e.key === 'Esc') && popup.style.display === 'block') {
+          hidePopup();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

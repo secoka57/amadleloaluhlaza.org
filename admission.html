@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disciplinary Action Chart - Amadlelo Aluhlaza</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #0f1e3a;
+    }
+
+    header,
+    footer {
+      background-color: #0f1e3a;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .home-button-container {
+      text-align: center;
+      margin-block-start: 1rem;
+    }
+
+    .home-button {
+      display: inline-block;
+      background-color: #0f1e3a;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: #0b1425;
+    }
+
+    main {
+      max-inline-size: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      margin-block-end: 1.5rem;
+    }
+
+    table {
+      inline-size: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-block-end: 2rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: start;
+    }
+
+    th {
+      background: #e2e6ee;
+    }
+
+    .chart-image {
+      margin-block-start: 2rem;
+      text-align: center;
+    }
+
+    .chart-image img {
+      inline-size: 100%;
+      max-inline-size: 800px;
+      border: 2px solid #0f1e3a;
+      border-radius: 10px;
+    }
+
+    .report-form {
+      margin-block-start: 3rem;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .report-form label {
+      display: block;
+      margin-block-start: 1rem;
+      font-weight: bold;
+    }
+
+    .report-form input,
+    .report-form textarea,
+    .report-form select {
+      inline-size: 100%;
+      padding: 0.75rem;
+      margin-block-start: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .report-form button {
+      margin-block-start: 1.5rem;
+      background: #0f1e3a;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-inline-size: 768px) {
+
+      th,
+      td {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>Amadlelo Aluhlaza Secondary School</h2>
+  </header>
+
+  <div class="home-button-container">
+    <a href="index.html" class="home-button">🏠 Back to Home</a>
+  </div>
+
+  <main>
+    <h1>Disciplinary Action Chart</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Behavior Examples</th>
+          <th>Consequences</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Level 1: Minor</td>
+          <td>Lateness, no homework, chewing gum, uniform violation</td>
+          <td>Verbal warning, discussion with learner</td>
+        </tr>
+        <tr>
+          <td>Level 2: Moderate</td>
+          <td>Disruptive behavior, repeated tardiness, disrespect</td>
+          <td>Written warning, parent meeting, detention</td>
+        </tr>
+        <tr>
+          <td>Level 3: Serious</td>
+          <td>Bullying, vandalism, defiance, minor fights</td>
+          <td>Formal disciplinary hearing, temporary suspension</td>
+        </tr>
+        <tr>
+          <td>Level 4: Severe</td>
+          <td>Drugs, weapons, physical assault, criminal conduct</td>
+          <td>Governing body hearing, possible expulsion, legal action</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="chart-image">
+      <h2>Visual Flowchart</h2>
+      <img src="https://i.imgur.com/Udfw6pR.png" alt="Disciplinary Flowchart">
+      <p style="margin-block-start: 1rem; font-style: italic;">*Flowchart represents the typical escalation process*</p>
+    </div>
+
+    <div class="report-form">
+      <h2>Report Misconduct</h2>
+      <form onsubmit="event.preventDefault(); alert('Report submitted. Thank you.'); this.reset();">
+        <label for="name">Your Name (optional)</label>
+        <input type="text" id="name" name="name" placeholder="John Doe">
+
+        <label for="learner">Name of Learner Involved</label>
+        <input type="text" id="learner" name="learner" required>
+
+        <label for="incident">Type of Misconduct</label>
+        <select id="incident" name="incident" required>
+          <option value="">-- Please Select --</option>
+          <option value="bullying">Bullying</option>
+          <option value="disrespect">Disrespect</option>
+          <option value="vandalism">Vandalism</option>
+          <option value="fighting">Fighting</option>
+          <option value="substance">Drugs/Alcohol</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="description">Detailed Description</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <button type="submit">Submit Report</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+    Tel: 071 697 6607 | EMIS No: 800030445<br />
+    Est. 2005 | All Rights Reserved
+  </footer>
+</body>
+
+</html>

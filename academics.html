@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Academics - Amadlelo Aluhlaza Secondary School</title>
+
+    <!-- SEO Meta -->
+    <meta name="description"
+        content="Explore the academic programs and curriculum offered at Amadlelo Aluhlaza Secondary School." />
+    <meta name="keywords" content="Academics, Curriculum, Subjects, Amadlelo Aluhlaza Secondary School" />
+    <meta name="author" content="Amadlelo Aluhlaza Secondary School" />
+
+    <style>
+        /* Same styles as other pages */
+        .lang-menu {
+            position: relative;
+            user-select: none;
+            font-weight: 700;
+            cursor: pointer;
+            color: #004d00;
+            font-size: 1rem;
+            outline: none;
+            margin-inline-start: auto;
+        }
+
+        .lang-menu .menu-btn {
+            padding: 6px 12px;
+            border: 2px solid #004d00;
+            border-radius: 6px;
+            background-color: #e6f2e6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-inline-size: 110px;
+            user-select: none;
+        }
+
+        .menu-btn::after {
+            content: "▼";
+            font-size: 0.6rem;
+            margin-inline-start: 6px;
+            color: #004d00;
+            user-select: none;
+        }
+
+        .lang-menu.open .menu-btn::after {
+            content: "▲";
+        }
+
+        .lang-menu .menu-content {
+            max-block-size: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            position: absolute;
+            inset-block-start: 100%;
+            inset-inline-start: 0;
+            background-color: white;
+            border: 2px solid #004d00;
+            border-radius: 6px;
+            min-inline-size: 110px;
+            z-index: 1000;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            margin-block-start: 6px;
+        }
+
+        .lang-menu.open .menu-content {
+            max-block-size: 200px;
+            opacity: 1;
+        }
+
+        .lang-menu .menu-content div {
+            padding: 8px 14px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #004d00;
+            user-select: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .lang-menu .menu-content div:hover,
+        .lang-menu .menu-content div:focus {
+            background-color: #cce6cc;
+            outline: none;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-block-end: 2px solid #004d00;
+        }
+
+        .logo {
+            block-size: 80px;
+            margin-inline-end: 12px;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #004d00;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #007700;
+            outline: none;
+        }
+
+        nav a[aria-current="page"] {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        main.content {
+            max-inline-size: 900px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-block-end: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #004d00;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-inline-size: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                block-size: 60px;
+                margin-inline-end: 0;
+                margin-block-end: 10px;
+            }
+
+            nav {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body id="academics">
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="School Logo" class="logo" />
+            <div>
+                <h1>Amadlelo Aluhlaza Secondary School</h1>
+                <p id="motto">"Rising With Strength & Success"</p>
+            </div>
+        </div>
+
+        <!-- Language toggle menu -->
+        <div class="lang-menu" id="langMenu" tabindex="0" aria-haspopup="true" aria-expanded="false"
+            aria-label="Language selection">
+            <div class="menu-btn" id="menuBtn" aria-controls="languageMenu" aria-haspopup="true" aria-expanded="false"
+                role="button" tabindex="0">
+                Language
+            </div>
+            <div class="menu-content" id="languageMenu" role="menu" aria-hidden="true">
+                <div role="menuitem" data-lang="en" tabindex="-1">English</div>
+                <div role="menuitem" data-lang="zu" tabindex="-1">IsiZulu</div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html" aria-current="page">Academics</a>
+        <a href="staff.html">Staff</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="content" role="main">
+        <div class="section" id="academics-section">
+            <h2 id="academics-header">Academics / Ezemfundo</h2>
+
+            <p id="academics-intro">
+                At Amadlelo Aluhlaza Secondary School, we offer a diverse curriculum designed to challenge and inspire
+                learners.
+            </p>
+
+            <h3 id="subjects-header">Subjects Offered / Izifundo Ezihlinzekwayo</h3>
+            <ul id="subjects-list">
+                <li>Mathematics / Izibalo</li>
+                <li>English Language / IsiNgisi</li>
+                <li>IsiZulu Language / IsiZulu</li>
+                <li>Physical Science / Isayensi Yomzimba</li>
+                <li>Life Sciences / Isayensi Yokuphila</li>
+                <li>Social Sciences / Izifundo Zomphakathi</li>
+                <li>Technology / Ubuchwepheshe</li>
+                <li>Arts and Culture / Ubuciko Nesiko</li>
+            </ul>
+
+            <h3 id="extra-header">Extra-curricular Activities / Imisebenzi Eyengeziwe</h3>
+            <p id="extra-text">
+                We encourage learners to participate in sports, music, debate, and environmental clubs to develop
+                well-rounded skills.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+        P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+        Tel: 071 697 6607 | EMIS No: 800030445<br />
+        Est. 2005 | All Rights Reserved
+    </footer>
+
+    <script>
+        (() => {
+            const langMenu = document.getElementById("langMenu");
+            const menuBtn = document.getElementById("menuBtn");
+            const menuContent = langMenu.querySelector(".menu-content");
+
+            const languages = {
+                en: {
+                    motto: '"Growing Green Minds"',
+                    langBtn: "Language",
+                    nav: {
+                        home: "Home",
+                        about: "About",
+                        academics: "Academics",
+                        staff: "Staff",
+                        gallery: "Gallery",
+                        contact: "Contact"
+                    },
+                    academics: {
+                        academicsHeader: "Academics / Ezemfundo",
+                        academicsIntro: "At Amadlelo Aluhlaza Secondary School, we offer a diverse curriculum designed to challenge and inspire learners.",
+                        subjectsHeader: "Subjects Offered / Izifundo Ezihlinzekwayo",
+                        subjectsList: [
+                            "Mathematics / Izibalo",
+                            "English Language / IsiNgisi",
+                            "IsiZulu Language / IsiZulu",
+                            "Physical Science / Isayensi Yomzimba",
+                            "Life Sciences / Isayensi Yokuphila",
+                            "Social Sciences / Izifundo Zomphakathi",
+                            "Technology / Ubuchwepheshe",
+                            "Arts and Culture / Ubuciko Nesiko"
+                        ],
+                        extraHeader: "Extra-curricular Activities / Imisebenzi Eyengeziwe",
+                        extraText: "We encourage learners to participate in sports, music, debate, and environmental clubs to develop well-rounded skills."
+                    }
+                },
+                zu: {
+                    motto: '"Ukukhulisa Izingqondo Eziluhlaza"',
+                    langBtn: "Ulimi",
+                    nav: {
+                        home: "Ikhaya",
+                        about: "Mayelana",
+                        academics: "Ezemfundo",
+                        staff: "Abasebenzi",
+                        gallery: "Amagalari",
+                        contact: "Xhumana"
+                    },
+                    academics: {
+                        academicsHeader: "Ezemfundo / Academics",
+                        academicsIntro: "E-Amadlelo Aluhlaza Secondary School, sinikeza uhlelo lwezifundo olunhlobonhlobo oluhloselwe ukujabulisa nokuvusa abafundi.",
+                        subjectsHeader: "Izifundo Ezihlinzekwayo / Subjects Offered",
+                        subjectsList: [
+                            "Izibalo / Mathematics",
+                            "IsiNgisi / English Language",
+                            "IsiZulu / IsiZulu Language",
+                            "Isayensi Yomzimba / Physical Science",
+                            "Isayensi Yokuphila / Life Sciences",
+                            "Izifundo Zomphakathi / Social Sciences",
+                            "Ubuchwepheshe / Technology",
+                            "Ubuciko Nesiko / Arts and Culture"
+                        ],
+                        extraHeader: "Imisebenzi Eyengeziwe / Extra-curricular Activities",
+                        extraText: "Sikhuthaza abafundi ukuba babambe iqhaza kwezemidlalo, umculo, impikiswano, kanye namaklabhu ezemvelo ukuze bathuthukise amakhono ahlukahlukene."
+                    }
+                }
+            };
+
+            function detectPage() {
+                const path = window.location.pathname;
+                const file = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
+                if (file.includes("about")) return "about";
+                if (file.includes("academics")) return "academics";
+                if (file === "" || file === "index.html") return "index";
+                return "academics"; // fallback for this page
+            }
+
+            function setTextContent(id, text) {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            }
+
+            function updateLanguage(lang) {
+                document.documentElement.lang = lang;
+                menuBtn.textContent = languages[lang].langBtn;
+                setAriaExpanded(false);
+                langMenu.classList.remove("open");
+
+                setTextContent("motto", languages[lang].motto);
+
+                // Update nav links
+                for (const [key, value] of Object.entries(languages[lang].nav)) {
+                    const navEl = document.querySelector(`nav a[href*='${key}']`);
+                    if (navEl) navEl.textContent = value;
+                }
+
+                // Update page content
+                const page = detectPage();
+                const pageData = languages[lang][page];
+                if (!pageData) return;
+
+                if (page === "academics") {
+                    setTextContent("academics-header", pageData.academicsHeader);
+                    setTextContent("academics-intro", pageData.academicsIntro);
+                    setTextContent("subjects-header", pageData.subjectsHeader);
+
+                    // Update subjects list items
+                    const subjectsListEl = document.getElementById("subjects-list");
+                    if (subjectsListEl) {
+                        subjectsListEl.innerHTML = "";
+                        pageData.subjectsList.forEach(subject => {
+                            const li = document.createElement("li");
+                            li.textContent = subject;
+                            subjectsListEl.appendChild(li);
+                        });
+                    }
+
+                    setTextContent("extra-header", pageData.extraHeader);
+                    setTextContent("extra-text", pageData.extraText);
+                }
+            }
+
+            function setAriaExpanded(isExpanded) {
+                menuBtn.setAttribute("aria-expanded", isExpanded);
+                langMenu.setAttribute("aria-expanded", isExpanded);
+                menuContent.setAttribute("aria-hidden", !isExpanded);
+            }
+
+            // Toggle menu on button click
+            menuBtn.addEventListener("click", () => {
+                const isOpen = langMenu.classList.toggle("open");
+                setAriaExpanded(isOpen);
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!langMenu.contains(e.target)) {
+                    langMenu.classList.remove("open");
+                    setAriaExpanded(false);
+                }
+            });
+
+            // Keyboard interaction for button
+            menuBtn.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    const isOpen = langMenu.classList.toggle("open");
+                    setAriaExpanded(isOpen);
+                } else if (e.key === "Escape") {
+                    langMenu.classList.remove("open");
+                    setAriaExpanded(false);
+                    menuBtn.focus();
+                } else if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    langMenu.classList.add("open");
+                    setAriaExpanded(true);
+                    const firstItem = menuContent.querySelector("[role='menuitem']");
+                    if (firstItem) firstItem.focus();
+                }
+            });
+
+            // Keyboard navigation inside menu items
+            const menuItems = menuContent.querySelectorAll("div");
+
+            menuItems.forEach((item, index) => {
+                // Click selects language
+                item.addEventListener("click", () => updateLanguage(item.dataset.lang));
+
+                // Keyboard support for menu items
+                item.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        updateLanguage(item.dataset.lang);
+                    } else if (e.key === "ArrowDown") {
+                        e.preventDefault();
+                        const nextIndex = (index + 1) % menuItems.length;
+                        menuItems[nextIndex].focus();
+                    } else if (e.key === "ArrowUp") {
+                        e.preventDefault();
+                        const prevIndex = (index - 1 + menuItems.length) % menuItems.length;
+                        menuItems[prevIndex].focus();
+                    } else if (e.key === "Escape") {
+                        langMenu.classList.remove("open");
+                        setAriaExpanded(false);
+                        menuBtn.focus();
+                    }
+                });
+            });
+
+            // Initialize language to English on load
+            updateLanguage("en");
+        })();
+    </script>
+</body>
+
+</html>

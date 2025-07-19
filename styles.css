@@ -1,0 +1,227 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f5fff5;
+  color: #004d00;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-block-end: 2px solid #004d00;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 1.6rem;
+}
+
+header p#motto {
+  font-style: italic;
+  color: #007700;
+}
+
+/* Logo */
+.logo {
+  block-size: 70px;
+  margin-inline-end: 12px;
+}
+
+/* Navigation */
+nav {
+  background-color: #e6f2e6;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #004d00;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a:focus,
+nav a[aria-current="page"] {
+  color: #007700;
+  text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+  max-inline-size: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-block-end: 1rem;
+  color: #004d00;
+}
+
+h3 {
+  color: #006600;
+}
+
+/* Form Styling */
+form {
+  background-color: #f0fff0;
+  border: 2px solid #004d00;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 77, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #004d00;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+button {
+  background-color: #004d00;
+  color: white;
+  padding: 10px 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #006600;
+}
+
+/* Staff Cards */
+.staff-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.staff-member {
+  background: #f0fff0;
+  border: 2px solid #004d00;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 77, 0, 0.2);
+}
+
+.staff-member h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.staff-member p {
+  margin: 0;
+  color: #006600;
+  font-weight: 600;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery-grid img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 8px;
+  border: 2px solid #004d00;
+  box-shadow: 0 2px 6px rgba(0, 77, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #004d00;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  margin-block-start: 2rem;
+}
+
+/* Language Menu (optional enhancement if reused) */
+.lang-menu {
+  position: relative;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-menu .menu-btn {
+  border: 2px solid #004d00;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #e6f2e6;
+}
+
+.lang-menu .menu-content {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  background: white;
+  border: 2px solid #004d00;
+  border-radius: 6px;
+  display: none;
+}
+
+.lang-menu.open .menu-content {
+  display: block;
+}
+
+.lang-menu .menu-content div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.lang-menu .menu-content div:hover {
+  background-color: #cce6cc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    block-size: 60px;
+    margin-block-end: 10px;
+  }
+}

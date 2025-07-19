@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report Misconduct - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --gray: #555a66;
+      --light: #f1f3f8;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--light);
+      margin: 0;
+      color: var(--navy);
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-block-end: 3px solid var(--navy);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 10px;
+    }
+
+    header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    #motto {
+      font-style: italic;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      border-block-start: 2px solid #4a9e4a;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -5px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 3px;
+      background: var(--navy);
+      transition: 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+
+    nav a:hover::after,
+    nav a[aria-current="page"]::after {
+      inline-size: 60%;
+    }
+
+    main {
+      max-inline-size: 700px;
+      margin: 2rem auto 4rem;
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      margin-block-end: 1.5rem;
+      text-align: center;
+      color: var(--navy);
+    }
+
+    .lang-toggle {
+      text-align: end;
+      font-weight: bold;
+      color: var(--navy);
+      margin-block-end: 1rem;
+      cursor: pointer;
+    }
+
+    form label {
+      display: block;
+      margin-block-start: 1rem;
+      font-weight: 600;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      inline-size: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-block-start: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    form button {
+      margin-block-start: 1.5rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: block;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #0b1425;
+    }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    @media (max-inline-size: 600px) {
+
+      header,
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-block-end: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+      alt="School Logo" class="logo" />
+    <div>
+      <h2>Amadlelo Aluhlaza Secondary School</h2>
+      <p id="motto">"Rising With Strength & Success"</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+    <a href="parents-code-of-conduct.html">Parents Code of Conduct</a>
+    <a href="disciplinary.html">Disciplinary Chart</a>
+    <a href="report-misconduct.html" aria-current="page">Report Misconduct</a>
+  </nav>
+
+  <main>
+    <div class="lang-toggle" onclick="toggleLang()">🌐 EN | ZU</div>
+
+    <h1 id="page-title">Report Misconduct</h1>
+
+    <form id="misconductForm" onsubmit="handleSubmit(event)">
+      <label for="name" id="label-name">Your Name (optional)</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" />
+
+      <label for="learner" id="label-learner">Name of Learner Involved</label>
+      <input type="text" id="learner" name="learner" required />
+
+      <label for="incident" id="label-incident">Type of Misconduct</label>
+      <select id="incident" name="incident" required>
+        <option value="">-- Please Select --</option>
+        <option value="bullying">Bullying</option>
+        <option value="disrespect">Disrespect</option>
+        <option value="vandalism">Vandalism</option>
+        <option value="fighting">Fighting</option>
+        <option value="substance">Drugs/Alcohol</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="description" id="label-description">Detailed Description</label>
+      <textarea id="description" name="description" rows="5" required></textarea>
+
+      <button type="submit" id="submit-btn">Submit Report</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+    Tel: 071 697 6607 | EMIS No: 800030445<br />
+    Est. 2005 | All Rights Reserved
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Report Misconduct",
+        labelName: "Your Name (optional)",
+        labelLearner: "Name of Learner Involved",
+        labelIncident: "Type of Misconduct",
+        labelDescription: "Detailed Description",
+        submitBtn: "Submit Report",
+        alertMsg: "Report submitted. Thank you."
+      },
+      zu: {
+        pageTitle: "Bika Ukuziphatha Okungalungile",
+        labelName: "Igama Lakho (uma likhona)",
+        labelLearner: "Igama Lomfundi Othintekayo",
+        labelIncident: "Uhlobo Lokuziphatha Okungalungile",
+        labelDescription: "Incazelo Eningiliziwe",
+        submitBtn: "Thumela Umbiko",
+        alertMsg: "Umbiko uthunyelwe. Ngiyabonga."
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'zu' : 'en';
+      const t = translations[currentLang];
+      document.getElementById('page-title').textContent = t.pageTitle;
+      document.getElementById('label-name').textContent = t.labelName;
+      document.getElementById('label-learner').textContent = t.labelLearner;
+      document.getElementById('label-incident').textContent = t.labelIncident;
+      document.getElementById('label-description').textContent = t.labelDescription;
+      document.getElementById('submit-btn').textContent = t.submitBtn;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert(translations[currentLang].alertMsg);
+      event.target.reset();
+    }
+  </script>
+</body>
+
+</html>

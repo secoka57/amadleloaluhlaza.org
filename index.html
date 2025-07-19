@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      font-family: 'Open Sans', sans-serif;
+      block-size: 100%;
+      overflow-x: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .logo-watermark {
+      position: fixed;
+      inset: 0;
+      background: url('https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238') no-repeat center center;
+      background-size: 280px;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-block-end: 3px solid #0f1e3a;
+      backdrop-filter: blur(6px);
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 8px;
+    }
+
+    .title-container h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: #0f1e3a;
+    }
+
+    #motto {
+      font-style: italic;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    nav {
+      background: rgba(15, 30, 58, 0.85);
+      color: #fff;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -4px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 2px;
+      background: #fff;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    nav a:hover::after {
+      inline-size: 60%;
+      inset-inline-start: 20%;
+    }
+
+    .hero {
+      block-size: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #0f1e3a;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero p {
+      margin-block-start: 1rem;
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    footer {
+      background: #0f1e3a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .popup {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      background: rgba(15, 30, 58, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup.show {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-inline-size: 90%;
+      animation: bounceIn 0.9s;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .popup-content img {
+      inline-size: 100px;
+      margin-block-end: 1rem;
+    }
+
+    .popup-content h2 {
+      color: #0f1e3a;
+      margin-block-end: 0.5rem;
+    }
+
+    .popup-content p {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .popup-content input {
+      margin-block-start: 1rem;
+      padding: 0.5rem;
+      inline-size: 90%;
+      max-inline-size: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .popup-content label {
+      margin-block-start: 1rem;
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .popup-content button {
+      margin-block-start: 1rem;
+      padding: 0.5rem 1.5rem;
+      background: #0f1e3a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .popup-content button:hover {
+      background: #0c152d;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-inline-size: 600px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .logo {
+        block-size: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <video class="video-bg" autoplay muted loop>
+    <source src="https://cdn.pixabay.com/vimeo/764474614/education-133911.mp4?width=1280" type="video/mp4">
+  </video>
+
+  <div class="logo-watermark"></div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo" />
+      <h2>Welcome to Amadlelo Aluhlaza</h2>
+      <p>Subscribe for school updates:</p>
+      <input type="email" placeholder="Enter your email" id="newsletterEmail" />
+      <label><input type="checkbox" id="noShowAgain" /> Don't show again</label>
+      <button onclick="closePopup()">Enter</button>
+    </div>
+  </div>
+
+  <!-- Welcome Sound -->
+  <audio id="welcomeSound"
+    src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_84f2d2616f.mp3?filename=school-bell-121229.mp3"></audio>
+
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo" class="logo" />
+    <div class="title-container">
+      <h1>Amadlelo Aluhlaza Secondary School</h1>
+      <p id="motto">"Rising With Strength & Success"</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <span class="lang-toggle" onclick="toggleLang()">🌐 EN | ZU</span>
+  </nav>
+
+  <main class="hero">
+    <h2 id="heroHeading">Welcome to Amadlelo Aluhlaza Secondary School</h2>
+    <p id="heroText">Empowering learners through education, sustainability, and community engagement.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+    Tel: 071 697 6607 | EMIS No: 800030445
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        motto: '"Rising With Strength & Success"',
+        heading: "Welcome to Amadlelo Aluhlaza Secondary School",
+        text: "Empowering learners through education, sustainability, and community engagement."
+      },
+      zu: {
+        motto: '"Ukukhulisa Izingqondo Eziluhlaza"',
+        heading: "Siyakwamukela e-Amadlelo Aluhlaza Secondary School",
+        text: "Ukuqeqesha abafundi ngolwazi, ukusimama kanye nokubambisana nomphakathi."
+      }
+    };
+
+    let currentLang = 'en';
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'zu' : 'en';
+      document.getElementById('motto').textContent = translations[currentLang].motto;
+      document.getElementById('heroHeading').textContent = translations[currentLang].heading;
+      document.getElementById('heroText').textContent = translations[currentLang].text;
+    }
+
+    window.onload = function () {
+      if (!localStorage.getItem('popupDismissed')) {
+        setTimeout(() => {
+          document.getElementById("popup").classList.add("show");
+          document.getElementById("welcomeSound").play();
+        }, 2000);
+      }
+    };
+
+    function closePopup() {
+      if (document.getElementById("noShowAgain").checked) {
+        localStorage.setItem("popupDismissed", "true");
+      }
+      document.getElementById("popup").classList.remove("show");
+    }
+  </script>
+</body>
+
+</html>

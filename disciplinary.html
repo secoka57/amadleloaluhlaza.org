@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Disciplinary Action Chart - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --green: #4a9e4a;
+      --white: #fff;
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f3f8;
+      margin: 0;
+      color: var(--navy);
+      line-height: 1.6;
+      position: relative;
+      min-block-size: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Watermark behind main content */
+    main::before {
+      content: "";
+      position: fixed;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 300px;
+      block-size: 300px;
+      background: url("https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") no-repeat center;
+      background-size: contain;
+      opacity: 0.08;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header,
+    nav {
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    header {
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0;
+      user-select: none;
+    }
+
+    nav {
+      gap: 2rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      border-block-start: 2px solid var(--green);
+    }
+
+    nav a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      padding: 0.4rem 0;
+      user-select: none;
+      transition: color var(--transition-speed) ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--green);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -5px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 2px;
+      background: var(--green);
+      transition: width var(--transition-speed) ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a[aria-current="page"]::after {
+      inline-size: 60%;
+    }
+
+    main {
+      max-inline-size: 900px;
+      margin: 3rem auto 4rem;
+      background: var(--white);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 5;
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards ease;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1,
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      margin-block-end: 1.5rem;
+      text-align: center;
+      color: var(--navy);
+      user-select: none;
+    }
+
+    table {
+      inline-size: 100%;
+      border-collapse: collapse;
+      margin-block-end: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    table:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: start;
+      user-select: text;
+      transition: background-color 0.3s ease;
+    }
+
+    th {
+      background: #e2e6ee;
+      font-weight: 700;
+    }
+
+    tbody tr:hover td {
+      background-color: #d7f0d7;
+    }
+
+    .card {
+      background: #f9fafc;
+      border: 1.5px solid #d2dce6;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      margin-block-end: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards ease;
+    }
+
+    /* Stagger card fadeInUp animations */
+    .card:nth-child(1) {
+      animation-delay: 0.6s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.9s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+
+    .chart-image {
+      text-align: center;
+      margin-block-end: 2rem;
+    }
+
+    .chart-image img {
+      max-inline-size: 100%;
+      border: 2px solid var(--navy);
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .chart-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .report-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .report-form label {
+      display: block;
+      margin-block-start: 1rem;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .report-form input,
+    .report-form select,
+    .report-form textarea {
+      inline-size: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-block-start: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .report-form input:focus,
+    .report-form select:focus,
+    .report-form textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 5px var(--green);
+    }
+
+    .report-form button {
+      margin-block-start: 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background var(--transition-speed) ease;
+      user-select: none;
+    }
+
+    .report-form button:hover {
+      background: #0b1425;
+    }
+
+    .lang-toggle {
+      text-align: end;
+      margin-block-end: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--navy);
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-toggle.fading {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    @media (max-inline-size: 600px) {
+
+      header,
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-block-end: 0.5rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+      alt="School Logo" class="logo" />
+    <h2>Amadlelo Aluhlaza Secondary School</h2>
+    <p id="motto">"Rising With Strength & Success"</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+    <a href="parents-code-of-conduct.html">Parents Code of Conduct</a>
+    <a href="disciplinary.html" aria-current="page">Disciplinary Action Chart</a>
+  </nav>
+
+  <main>
+    <div class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 EN | ZU</div>
+
+    <h1 id="page-title">Disciplinary Action Chart</h1>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th id="level-header">Level</th>
+            <th id="behavior-header">Behavior Examples</th>
+            <th id="consequences-header">Consequences</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Level 1: Minor</td>
+            <td>Lateness, no homework, chewing gum, uniform violation</td>
+            <td>Verbal warning, discussion with learner</td>
+          </tr>
+          <tr>
+            <td>Level 2: Moderate</td>
+            <td>Disruptive behavior, repeated tardiness, disrespect</td>
+            <td>Written warning, parent meeting, detention</td>
+          </tr>
+          <tr>
+            <td>Level 3: Serious</td>
+            <td>Bullying, vandalism, defiance, minor fights</td>
+            <td>Formal disciplinary hearing, temporary suspension</td>
+          </tr>
+          <tr>
+            <td>Level 4: Severe</td>
+            <td>Drugs, weapons, physical assault, criminal conduct</td>
+            <td>Governing body hearing, possible expulsion, legal action</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card chart-image">
+      <h2 id="flowchart-title">Visual Flowchart</h2>
+      <img src="https://i.imgur.com/Udfw6pR.png" alt="Disciplinary Flowchart" />
+      <p style="font-style: italic; margin-block-start: 1rem;">*Flowchart represents the typical escalation process*</p>
+    </div>
+
+    <section class="report-form card">
+      <h2 id="report-title">Report Misconduct</h2>
+      <form id="reportForm" onsubmit="handleSubmit(event)">
+        <label for="name" id="label-name">Your Name (optional)</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" />
+
+        <label for="learner" id="label-learner">Name of Learner Involved</label>
+        <input type="text" id="learner" name="learner" required />
+
+        <label for="incident" id="label-incident">Type of Misconduct</label>
+        <select id="incident" name="incident" required>
+          <option value="">-- Please Select --</option>
+          <option value="bullying">Bullying</option>
+          <option value="disrespect">Disrespect</option>
+          <option value="vandalism">Vandalism</option>
+          <option value="fighting">Fighting</option>
+          <option value="substance">Drugs/Alcohol</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="description" id="label-description">Detailed Description</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <button type="submit" id="submit-btn">Submit Report</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+    Tel: 071 697 6607 | EMIS No: 800030445<br />
+    Est. 2005 | All Rights Reserved
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Disciplinary Action Chart",
+        levelHeader: "Level",
+        behaviorHeader: "Behavior Examples",
+        consequencesHeader: "Consequences",
+        flowchartTitle: "Visual Flowchart",
+        reportTitle: "Report Misconduct",
+        labelName: "Your Name (optional)",
+        labelLearner: "Name of Learner Involved",
+        labelIncident: "Type of Misconduct",
+        labelDescription: "Detailed Description",
+        submitBtn: "Submit Report",
+        alertMsg: "Report submitted. Thank you."
+      },
+      zu: {
+        pageTitle: "Ishadi Lezenzo Zokuziphatha",
+        levelHeader: "Izinga",
+        behaviorHeader: "Izibonelo Zokuziphatha",
+        consequencesHeader: "Imiphumela",
+        flowchartTitle: "Ishadi Eliyibonakalayo",
+        reportTitle: "Bika Ukuziphatha Okungalungile",
+        labelName: "Igama Lakho (uma likhona)",
+        labelLearner: "Igama Lomfundi Othintekayo",
+        labelIncident: "Uhlobo Lokuziphatha Okungalungile",
+        labelDescription: "Incazelo Eningiliziwe",
+        submitBtn: "Thumela Umbiko",
+        alertMsg: "Umbiko uthunyelwe. Ngiyabonga."
+      }
+    };
+
+    let currentLang = 'en';
+    const langToggle = document.getElementById('langToggle');
+
+    function toggleLang() {
+      // Fade effect for language toggle text
+      langToggle.classList.add('fading');
+      setTimeout(() => {
+        currentLang = currentLang === 'en' ? 'zu' : 'en';
+
+        const t = translations[currentLang];
+        document.getElementById('page-title').textContent = t.pageTitle;
+        document.getElementById('level-header').textContent = t.levelHeader;
+        document.getElementById('behavior-header').textContent = t.behaviorHeader;
+        document.getElementById('consequences-header').textContent = t.consequencesHeader;
+        document.getElementById('flowchart-title').textContent = t.flowchartTitle;
+        document.getElementById('report-title').textContent = t.reportTitle;
+        document.getElementById('label-name').textContent = t.labelName;
+        document.getElementById('label-learner').textContent = t.labelLearner;
+        document.getElementById('label-incident').textContent = t.labelIncident;
+        document.getElementById('label-description').textContent = t.labelDescription;
+        document.getElementById('submit-btn').textContent = t.submitBtn;
+
+        langToggle.textContent = currentLang === 'en' ? '🌐 EN | ZU' : '🌐 ZU | EN';
+        langToggle.classList.remove('fading');
+      }, 300);
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert(currentLang === 'en' ? translations.en.alertMsg : translations.zu.alertMsg);
+      event.target.reset();
+    }
+  </script>
+</body>
+
+</html>

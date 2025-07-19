@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --green: #4a9e4a;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f3f8;
+      margin: 0;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    header,
+    nav {
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    }
+
+    header {
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 10px;
+    }
+
+    header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      gap: 2rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      border-block-start: 2px solid var(--green);
+    }
+
+    nav a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--green);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -5px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 2px;
+      background: var(--green);
+      transition: 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a[aria-current="page"]::after {
+      inline-size: 60%;
+    }
+
+    main {
+      max-inline-size: 1100px;
+      margin: 3rem auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-block-start: 2rem;
+    }
+
+    .card {
+      background: #f9fafc;
+      border: 1.5px solid #d2dce6;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      inline-size: 100%;
+      block-size: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-block-end: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .load-more {
+      display: block;
+      margin: 2rem auto 0;
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .load-more:hover {
+      background: #3d8740;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--navy);
+      color: var(--white);
+      margin-block-start: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238" alt="School Logo" class="logo" />
+    <h2>Amadlelo Aluhlaza Secondary School</h2>
+    <p id="motto">"Rising With Strength & Success"</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+  </nav>
+
+  <main>
+    <h2>School Gallery</h2>
+    <div class="gallery" id="gallery"></div>
+    <button class="load-more" onclick="loadMoreImages()">Load More</button>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School<br />
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380<br />
+    Tel: 071 697 6607 | EMIS No: 800030445<br />
+    Est. 2005 | All Rights Reserved
+  </footer>
+
+  <script>
+    const imageData = [
+      {
+        src: "https://th.bing.com/th/id/OIP.WsA9wTCNp2knIVt8QylP2gHaDy?w=208&h=106&c=7&r=0&o=7&dpr=1.3&pid=1.7",
+        desc: "<strong>Sports Day Victory:</strong> Our athletes dominated the inter-school competition, bringing home 7 medals and the pride of the green fields. Go Green Eagles!"
+      },
+      {
+        src: "https://example.com/science-fair.jpg",
+        desc: "<strong>Science Fair Excellence:</strong> Learners showcased creative projects on clean energy and robotics. Our team ranked 1st for their solar irrigation model."
+      },
+      {
+        src: "https://example.com/matric-farewell.jpg",
+        desc: "<strong>Matric Farewell 2024:</strong> An evening of tears, laughter, and dreams. Our Grade 12s dressed to impress and left unforgettable memories behind."
+      },
+      {
+        src: "https://example.com/green-day.jpg",
+        desc: "<strong>Green Day Initiative:</strong> Our learners planted over 50 indigenous trees around the schoolyard as part of our “Green Minds” campaign."
+      },
+      {
+        src: "https://example.com/computer-lab.jpg",
+        desc: "<strong>Digital Leap:</strong> The new computer lab was officially opened, giving learners hands-on exposure to coding and computer literacy."
+      },
+      {
+        src: "https://example.com/heritage-day.jpg",
+        desc: "<strong>Heritage Day:</strong> Learners celebrated proudly in traditional attire, performing dances, poems, and songs that honored our diverse cultures."
+      },
+      {
+        src: "https://example.com/top-achievers.jpg",
+        desc: "<strong>Academic Excellence:</strong> The school honored its top-performing learners during a proud awards ceremony held in the school hall."
+      },
+      {
+        src: "https://example.com/museum-trip.jpg",
+        desc: "<strong>Educational Excursion:</strong> A trip to the National Museum expanded our learners’ knowledge of history and science in a fun, interactive way."
+      },
+      {
+        src: "https://th.bing.com/th/id/OIP.WsA9wTCNp2knIVt8QylP2gHaDy?w=208&h=106&c=7&r=0&o=7&dpr=1.3&pid=1.7",
+        desc: "<strong>Sports Day Victory:</strong> Our athletes dominated the inter-school competition, bringing home 7 medals and the pride of the green fields. Go Green Eagles!"
+      },
+      {
+        src: "https://example.com/science-fair.jpg",
+        desc: "<strong>Science Fair Excellence:</strong> Learners showcased creative projects on clean energy and robotics. Our team ranked 1st for their solar irrigation model."
+      },
+      {
+        src: "https://example.com/matric-farewell.jpg",
+        desc: "<strong>Matric Farewell 2024:</strong> An evening of tears, laughter, and dreams. Our Grade 12s dressed to impress and left unforgettable memories behind."
+      },
+      {
+        src: "https://example.com/green-day.jpg",
+        desc: "<strong>Green Day Initiative:</strong> Our learners planted over 50 indigenous trees around the schoolyard as part of our “Green Minds” campaign."
+      },
+      {
+        src: "https://example.com/computer-lab.jpg",
+        desc: "<strong>Digital Leap:</strong> The new computer lab was officially opened, giving learners hands-on exposure to coding and computer literacy."
+      },
+      {
+        src: "https://example.com/heritage-day.jpg",
+        desc: "<strong>Heritage Day:</strong> Learners celebrated proudly in traditional attire, performing dances, poems, and songs that honored our diverse cultures."
+      },
+      {
+        src: "https://example.com/top-achievers.jpg",
+        desc: "<strong>Academic Excellence:</strong> The school honored its top-performing learners during a proud awards ceremony held in the school hall."
+      },
+      {
+        src: "https://example.com/museum-trip.jpg",
+        desc: "<strong>Educational Excursion:</strong> A trip to the National Museum expanded our learners’ knowledge of history and science in a fun, interactive way."
+      },
+      {
+        src: "https://th.bing.com/th/id/OIP.WsA9wTCNp2knIVt8QylP2gHaDy?w=208&h=106&c=7&r=0&o=7&dpr=1.3&pid=1.7",
+        desc: "<strong>Sports Day Victory:</strong> Our athletes dominated the inter-school competition, bringing home 7 medals and the pride of the green fields. Go Green Eagles!"
+      },
+      {
+        src: "https://example.com/science-fair.jpg",
+        desc: "<strong>Science Fair Excellence:</strong> Learners showcased creative projects on clean energy and robotics. Our team ranked 1st for their solar irrigation model."
+      },
+      {
+        src: "https://example.com/matric-farewell.jpg",
+        desc: "<strong>Matric Farewell 2024:</strong> An evening of tears, laughter, and dreams. Our Grade 12s dressed to impress and left unforgettable memories behind."
+      },
+      {
+        src: "https://example.com/green-day.jpg",
+        desc: "<strong>Green Day Initiative:</strong> Our learners planted over 50 indigenous trees around the schoolyard as part of our “Green Minds” campaign."
+      },
+      {
+        src: "https://example.com/computer-lab.jpg",
+        desc: "<strong>Digital Leap:</strong> The new computer lab was officially opened, giving learners hands-on exposure to coding and computer literacy."
+      },
+      {
+        src: "https://example.com/heritage-day.jpg",
+        desc: "<strong>Heritage Day:</strong> Learners celebrated proudly in traditional attire, performing dances, poems, and songs that honored our diverse cultures."
+      },
+      {
+        src: "https://example.com/top-achievers.jpg",
+        desc: "<strong>Academic Excellence:</strong> The school honored its top-performing learners during a proud awards ceremony held in the school hall."
+      },
+      {
+        src: "https://example.com/museum-trip.jpg",
+        desc: "<strong>Educational Excursion:</strong> A trip to the National Museum expanded our learners’ knowledge of history and science in a fun, interactive way."
+      }
+    ];
+
+    let displayed = 0;
+    const perLoad = 3;
+    const gallery = document.getElementById("gallery");
+
+    function loadMoreImages() {
+      const nextBatch = imageData.slice(displayed, displayed + perLoad);
+      nextBatch.forEach(({ src, desc }) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<img src="${src}" alt="Gallery Image"><p>${desc}</p>`;
+        gallery.appendChild(card);
+      });
+      displayed += perLoad;
+      if (displayed >= imageData.length) {
+        document.querySelector(".load-more").style.display = "none";
+      }
+    }
+
+    window.onload = loadMoreImages;
+  </script>
+</body>
+
+</html>

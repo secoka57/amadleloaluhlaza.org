@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grades and Class Statistics - 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-block-end: 1rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            inline-size: 100%;
+            max-inline-size: 1100px;
+            margin: 0 auto 2rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th {
+            background-color: #004080;
+            color: white;
+            position: relative;
+        }
+
+        th.sorted-asc::after {
+            content: " ▲";
+            position: absolute;
+            inset-inline-end: 8px;
+        }
+
+        th.sorted-desc::after {
+            content: " ▼";
+            position: absolute;
+            inset-inline-end: 8px;
+        }
+
+        caption {
+            font-weight: bold;
+            margin-block-end: 0.5rem;
+            font-size: 1.2rem;
+            color: #004080;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-block-end: 1rem;
+        }
+
+        button#downloadPdf {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button#downloadPdf:hover {
+            background-color: #002b55;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Class Statistics: 2025</h1>
+
+    <div class="btn-container">
+        <button id="downloadPdf">Download PDF</button>
+    </div>
+
+    <table id="gradesTable">
+        <caption>Grades, Classes, Learner Counts, and Educators</caption>
+        <thead>
+            <tr>
+                <th data-type="string">Grade</th>
+                <th data-type="string">Class</th>
+                <th data-type="string">Educator</th>
+                <th data-type="number">Total Learners</th>
+                <th data-type="number">Male</th>
+                <th data-type="number">Female</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Grade 08 -->
+            <tr>
+                <td>Grade 08</td>
+                <td>B7 - GRADE - 8</td>
+                <td>Masala M</td>
+                <td>150</td>
+                <td>79</td>
+                <td>71</td>
+            </tr>
+            <tr>
+                <td>Grade 08</td>
+                <td>B8 - GRADE - 8</td>
+                <td>Shoyisa T</td>
+                <td>45</td>
+                <td>24</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Grade 08</td>
+                <td>B9 - GRADE - 8</td>
+                <td>Mkhwanazi N</td>
+                <td>54</td>
+                <td>24</td>
+                <td>30</td>
+            </tr>
+
+            <!-- Grade 09 -->
+            <tr>
+                <td>Grade 09</td>
+                <td>B2 - GRADE - 9</td>
+                <td>Mthethwa STP</td>
+                <td>51</td>
+                <td>31</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Grade 09</td>
+                <td>B3 - GRADE 9</td>
+                <td>Mazibuko MB</td>
+                <td>221</td>
+                <td>108</td>
+                <td>113</td>
+            </tr>
+            <tr>
+                <td>Grade 09</td>
+                <td>B4 - GRADE 9</td>
+                <td>Nkabinde SJ</td>
+                <td>71</td>
+                <td>42</td>
+                <td>29</td>
+            </tr>
+
+            <!-- Grade 10 -->
+            <tr>
+                <td>Grade 10</td>
+                <td>E1 - GRADE - 10</td>
+                <td>Nkosi NT</td>
+                <td>79</td>
+                <td>34</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>Grade 10</td>
+                <td>E25 - GRADE - 10</td>
+                <td>Makhubu NP</td>
+                <td>71</td>
+                <td>32</td>
+                <td>39</td>
+            </tr>
+            <tr>
+                <td>Grade 10</td>
+                <td>E28 - GRADE - 10</td>
+                <td>Zwane PM</td>
+                <td>359</td>
+                <td>161</td>
+                <td>198</td>
+            </tr>
+            <tr>
+                <td>Grade 10</td>
+                <td>E4 - GRADE - 10</td>
+                <td>Motha AN</td>
+                <td>71</td>
+                <td>34</td>
+                <td>37</td>
+            </tr>
+            <tr>
+                <td>Grade 10</td>
+                <td>F9 - GRADE - 10</td>
+                <td>Jobe L</td>
+                <td>81</td>
+                <td>39</td>
+                <td>42</td>
+            </tr>
+
+            <!-- Grade 11 -->
+            <tr>
+                <td>Grade 11</td>
+                <td>E27 - GRADE - 11</td>
+                <td>Maja GC</td>
+                <td>72</td>
+                <td>27</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>Grade 11</td>
+                <td>E29 - GRADE - 11</td>
+                <td>Nyawo NH</td>
+                <td>65</td>
+                <td>30</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Grade 11</td>
+                <td>F1 - GRADE - 11</td>
+                <td>Mthembu P</td>
+                <td>70</td>
+                <td>31</td>
+                <td>39</td>
+            </tr>
+            <tr>
+                <td>Grade 11</td>
+                <td>F17 - GRADE - 11</td>
+                <td>Msimango SS</td>
+                <td>247</td>
+                <td>104</td>
+                <td>143</td>
+            </tr>
+
+            <!-- Grade 12 -->
+            <tr>
+                <td>Grade 12</td>
+                <td>B13 - GRADE - 12</td>
+                <td>Zwane SS</td>
+                <td>68</td>
+                <td>21</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td>Grade 12</td>
+                <td>B14 - GRADE - 12</td>
+                <td>Nkosi MI</td>
+                <td>46</td>
+                <td>26</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Grade 12</td>
+                <td>B15 - GRADE - 12</td>
+                <td>Makhathini GM</td>
+                <td>66</td>
+                <td>26</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>Grade 12</td>
+                <td>B18 - GRADE - 12</td>
+                <td>Khaba SI</td>
+                <td>67</td>
+                <td>31</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <td>Grade 12</td>
+                <td>B19 - GRADE - 12</td>
+                <td>Makhathini N</td>
+                <td>258</td>
+                <td>122</td>
+                <td>136</td>
+            </tr>
+            <tr>
+                <td>Grade 12</td>
+                <td>B20 - GRADE - 12</td>
+                <td>Magagula ST</td>
+                <td>40</td>
+                <td>21</td>
+                <td>19</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">Total Learners in all Classes</th>
+                <th>1235</th>
+                <th>574</th>
+                <th>661</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="btn-container" style="text-align:center;">
+        <button id="downloadPdf">Download PDF</button>
+    </div>
+
+    <!-- jsPDF and html2canvas libraries for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Sorting function
+        (function () {
+            const table = document.getElementById('gradesTable');
+            const headers = table.querySelectorAll('th');
+            let sortDirection = Array(headers.length).fill(null);
+
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const type = header.getAttribute('data-type');
+                    const tbody = table.tBodies[0];
+                    const rows = Array.from(tbody.rows);
+
+                    // Determine sort order
+                    let direction = sortDirection[index] === 'asc' ? 'desc' : 'asc';
+                    sortDirection.fill(null);
+                    sortDirection[index] = direction;
+
+                    // Remove sorted classes from all headers
+                    headers.forEach(h => h.classList.remove('sorted-asc', 'sorted-desc'));
+                    header.classList.add(direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        let aText = a.cells[index].textContent.trim();
+                        let bText = b.cells[index].textContent.trim();
+
+                        if (type === 'number') {
+                            aText = parseFloat(aText);
+                            bText = parseFloat(bText);
+                            if (isNaN(aText)) aText = -Infinity;
+                            if (isNaN(bText)) bText = -Infinity;
+                        } else {
+                            aText = aText.toLowerCase();
+                            bText = bText.toLowerCase();
+                        }
+
+                        if (aText < bText) return direction === 'asc' ? -1 : 1;
+                        if (aText > bText) return direction === 'asc' ? 1 : -1;
+                        return 0;
+                    });
+
+                    // Re-add sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        })();
+
+        // PDF download
+        document.getElementById('downloadPdf').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+
+            const element = document.body; // capture whole page
+
+            html2canvas(element, { scale: 2 }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'pt', 'a4');
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('grades_statistics_2025.pdf');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

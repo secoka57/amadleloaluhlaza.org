@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --green: #4a9e4a;
+      --white: #fff;
+      --transition-speed: 0.3s;
+      --letterhead-height: 100px;
+    }
+
+    /* Basic Reset and Fonts */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f3f8;
+      margin: 0;
+      color: var(--navy);
+      position: relative;
+      min-block-size: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Letterhead */
+    #letterhead {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 2rem;
+      background: var(--white);
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      user-select: none;
+      block-size: var(--letterhead-height);
+      position: relative;
+      z-index: 20;
+    }
+
+    #letterhead img {
+      block-size: 80px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    #letterhead h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 2rem;
+      background: var(--white);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      border-block-start: 2px solid var(--green);
+      user-select: none;
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 15;
+    }
+
+    nav a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      padding: 0.4rem 0;
+      transition: color var(--transition-speed) ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--green);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -5px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 2px;
+      background: var(--green);
+      transition: width var(--transition-speed) ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a[aria-current="page"]::after {
+      inline-size: 60%;
+    }
+
+    /* Watermark logo behind content */
+    main::before {
+      content: "";
+      position: fixed;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 300px;
+      block-size: 300px;
+      background: url("https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") no-repeat center;
+      background-size: contain;
+      opacity: 0.06;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Main container */
+    main {
+      max-inline-size: 900px;
+      margin: 2rem auto 5rem;
+      background: var(--white);
+      padding: 2rem 3rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 5;
+      user-select: text;
+    }
+
+    /* Section headings */
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+      margin-block-start: 0;
+      user-select: none;
+    }
+
+    /* Paragraph styling */
+    p {
+      margin-block-end: 1.2rem;
+    }
+
+    /* Language toggle */
+    #langToggle {
+      text-align: end;
+      margin-block-end: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--navy);
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #langToggle.fading {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Gallery Carousel - simple */
+    #gallery {
+      margin-block-start: 2rem;
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #gallery img {
+      inline-size: 200px;
+      block-size: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      scroll-snap-align: center;
+      user-select: none;
+    }
+
+    /* Back to Home button */
+    #backHome {
+      display: inline-block;
+      margin-block-start: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    #backHome:hover {
+      background: #0b1425;
+    }
+
+    /* Download PDF button */
+    #downloadPdf {
+      display: inline-block;
+      margin-block-start: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    #downloadPdf:hover {
+      background: #3b7a3b;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 600;
+      border-block-start: 2px solid var(--green);
+      user-select: none;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      nav,
+      #langToggle,
+      #backHome,
+      #downloadPdf {
+        display: none !important;
+      }
+
+      main {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      #letterhead {
+        box-shadow: none;
+        padding: 0;
+        margin-block-end: 1rem;
+      }
+
+      main::before {
+        display: none !important;
+      }
+    }
+
+    /* Responsive */
+    @media (max-inline-size: 650px) {
+      main {
+        padding: 1.5rem 1.5rem 2.5rem;
+      }
+
+      #gallery img {
+        inline-size: 140px;
+        block-size: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Letterhead -->
+  <div id="letterhead">
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+      alt="School Logo" />
+    <h1>Amadlelo Aluhlaza Secondary School</h1>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+  </nav>
+
+  <main id="content-to-pdf">
+    <div id="langToggle" onclick="toggleLang()">🌐 EN | ZU</div>
+
+    <!-- About Section -->
+    <section id="about-en">
+      <h2>About Amadlelo Aluhlaza Secondary School</h2>
+      <p>
+        Amadlelo Aluhlaza Secondary School is dedicated to providing high-quality education to all learners regardless
+        of colour, gender, or religion. We work closely with our community and stakeholders to nurture academic growth,
+        personal development, and social responsibility in line with the evolving needs of South Africa and the spirit
+        of the African Renaissance.
+      </p>
+    </section>
+    <section id="about-zu" style="display:none;">
+      <h2>Mayelana ne-Amadlelo Aluhlaza Secondary School</h2>
+      <p>
+        Isikole i-Amadlelo Aluhlaza Secondary School sizibophezele ekunikezeni imfundo esezingeni eliphezulu kubo bonke
+        abafundi ngaphandle kokubandlulula ngokobuhlanga, ubulili, noma inkolo. Sisebenzisana ngokuseduze nomphakathi
+        kanye nabo bonke ababambiqhaza ukukhulisa ukukhula kwezemfundo, ukuthuthukiswa komuntu siqu, kanye nomthwalo
+        wemfanelo emphakathini ngokuhambisana nezidingo ezishintshashintshayo zeNingizimu Afrika kanye nomoya we-African
+        Renaissance.
+      </p>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision-en" style="margin-block-start: 2rem;">
+      <h2>Our Vision</h2>
+      <p>
+        To provide educational development to all learners regardless of colour, gender and religion in accordance with
+        the needs of the community as they are dictated by new demands of the new democratic South Africa informed by
+        African renaissance.
+      </p>
+    </section>
+    <section id="vision-zu" style="display:none; margin-block-start: 2rem;">
+      <h2>Umbono Wethu</h2>
+      <p>
+        Ukuhlinzeka ngentuthuko yemfundo kubo bonke abafundi ngaphandle kokubandlulula ngokobuhlanga, ubulili noma
+        inkolo
+        ngokuhambisana nezidingo zomphakathi njengoba ziqondiswa izidingo ezintsha zeNingizimu Afrika entsha
+        enombuso wobumbano oqondiswa i-African Renaissance.
+      </p>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission-en" style="margin-block-start: 2rem;">
+      <h2>Our Mission</h2>
+      <p>
+        Amadlelo Aluhlaza Maths, Science and Technology Academy is working together with all stakeholders and is
+        committed to striving to be a centre of excellent quality education by providing support based on the principles
+        of Batho Pele through capacity building, empowerment and maximum utilization of existing resources.
+      </p>
+    </section>
+    <section id="mission-zu" style="display:none; margin-block-start: 2rem;">
+      <h2>Umsebenzi Wethu</h2>
+      <p>
+        I-Amadlelo Aluhlaza Maths, Science and Technology Academy isebenzisana nabo bonke ababambiqhaza futhi
+        izibophezele
+        ekuzameni ukuba yisikhungo semfundo esezingeni eliphezulu ngokuhlinzeka ngosizo olusekelwe ezimisweni zeBatho
+        Pele ngokwakha amakhono, ukunikwa amandla kanye nokusetshenziswa okukhulu kwezinsiza ezikhona.
+      </p>
+    </section>
+
+    <!-- Gallery Carousel -->
+    <section id="gallery" aria-label="School Gallery">
+      <img src="https://th.bing.com/th/id/OIP.iEbOgE5_pz6aXcnx0bPBVQHaJ4?w=208&h=277&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+        alt="School Building" />
+      <img src="https://th.bing.com/th/id/OIP.AF7mC2KpuN-8tuFaAyLrkgHaFL?w=208&h=146&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+        alt="Students in Classroom" />
+      <img src="https://th.bing.com/th/id/OIP.Bqqlp3j3bGvBY66TEt7G_wHaEt?w=208&h=132&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+        alt="Science Lab" />
+      <img src="https://th.bing.com/th/id/OIP.1uLwf9oHf81vnIdgYnz7-QHaEK?w=208&h=117&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+        alt="Sports Day" />
+    </section>
+
+    <!-- Buttons -->
+    <button id="downloadPdf">Download as PDF</button>
+    <a href="index.html" id="backHome">← Back to Home</a>
+  </main>
+
+  <footer>
+    P.O. BOX 2515, Ethandukukhanya, Mkhondo, 2380 | Tel: 071 697 6607 | EMIS No: 800030445<br />
+    &copy; 2025 Amadlelo Aluhlaza Secondary School | All Rights Reserved
+  </footer>
+
+  <!-- Include html2pdf.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    // Multilingual toggle
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'en';
+
+    function toggleLang() {
+      langToggle.classList.add('fading');
+      setTimeout(() => {
+        currentLang = currentLang === 'en' ? 'zu' : 'en';
+
+        // Toggle visibility of sections
+        ['about', 'vision', 'mission'].forEach(section => {
+          document.getElementById(`${section}-en`).style.display = currentLang === 'en' ? 'block' : 'none';
+          document.getElementById(`${section}-zu`).style.display = currentLang === 'zu' ? 'block' : 'none';
+        });
+
+        // Update page title text
+        document.title = currentLang === 'en'
+          ? 'About - Amadlelo Aluhlaza Secondary School'
+          : 'Mayelana - Amadlelo Aluhlaza Secondary School';
+
+        // Update page heading aria-current link in nav
+        document.querySelectorAll('nav a').forEach(a => a.removeAttribute('aria-current'));
+        document.querySelector('nav a[href="about.html"]').setAttribute('aria-current', 'page');
+
+        langToggle.textContent = currentLang === 'en' ? '🌐 EN | ZU' : '🌐 ZU | EN';
+        langToggle.classList.remove('fading');
+      }, 300);
+    }
+
+    // Initial language setup
+    toggleLang();
+
+    // PDF Download function
+    document.getElementById('downloadPdf').addEventListener('click', () => {
+      const element = document.getElementById('content-to-pdf');
+
+      // Options for PDF generation
+      const opt = {
+        margin: [0.5, 0.5, 0.5, 0.5],
+        filename: 'Amadlelo_Aluhlaza_About.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+
+      // Before PDF generation, temporarily hide buttons and watermark
+      const downloadBtn = document.getElementById('downloadPdf');
+      const backHomeBtn = document.getElementById('backHome');
+      const watermark = document.querySelector('main::before');
+      downloadBtn.style.display = 'none';
+      backHomeBtn.style.display = 'none';
+
+      // Generate PDF
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Restore buttons
+        downloadBtn.style.display = 'inline-block';
+        backHomeBtn.style.display = 'inline-block';
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome - Amadlelo Aluhlaza Secondary School</title>
+    <meta name="description" content="Official homepage of Amadlelo Aluhlaza Secondary School." />
+    <meta name="keywords" content="Amadlelo Aluhlaza, School, Education" />
+    <meta name="author" content="Amadlelo Aluhlaza Secondary School" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            block-size: 100%;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Popup overlay --- */
+        #welcomePopup {
+            position: fixed;
+            inset: 0;
+            background: #f9fafb url('https://cdn.pixabay.com/photo/2016/08/11/23/45/flower-1587597_1280.png') center center no-repeat;
+            background-size: 200px 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            animation: fadeInPopup 0.6s ease forwards;
+        }
+
+        /* subtle floral flourish rotate behind logo */
+        #welcomePopup::before {
+            content: "";
+            position: absolute;
+            inset: 50% auto auto 50%;
+            inline-size: 300px;
+            block-size: 300px;
+            background: url('https://cdn.pixabay.com/photo/2016/08/11/23/45/flower-1587597_1280.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+            transform-origin: center;
+            animation: slowRotate 20s linear infinite;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        @keyframes slowRotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* fade in animation */
+        @keyframes fadeInPopup {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Logo in popup */
+        #welcomePopup img {
+            inline-size: 180px;
+            block-size: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+            margin-block-end: 1rem;
+            animation: pulseLogo 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseLogo {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+            }
+
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+            }
+        }
+
+        /* Welcome message */
+        #welcomePopup h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            color: #0f1e3a;
+            margin-block-end: 0.5rem;
+            text-align: center;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        #welcomePopup p {
+            font-size: 1.2rem;
+            color: #4a9e4a;
+            font-weight: 600;
+            text-align: center;
+            max-inline-size: 350px;
+            text-shadow: 0 0 8px #f0fff0;
+            margin-block-end: 2rem;
+        }
+
+        /* Close button */
+        #welcomePopup button {
+            padding: 0.75rem 2.5rem;
+            background-color: #0f1e3a;
+            color: white;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgb(0 0 0 / 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        #welcomePopup button:hover {
+            background-color: #4a9e4a;
+        }
+
+        /* Hide main page content while popup is active */
+        body.popup-active>*:not(#welcomePopup) {
+            filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+            user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            transition: filter 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="popup-active">
+
+    <!-- Popup welcome overlay -->
+    <div id="welcomePopup" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle"
+        aria-describedby="welcomeDesc">
+        <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+            alt="Amadlelo Aluhlaza Secondary School Logo" />
+        <h1 id="welcomeTitle">Welcome to Amadlelo Aluhlaza Secondary School</h1>
+        <p id="welcomeDesc">Empowering learners through education, sustainability, and community engagement.</p>
+        <button id="enterSiteBtn" aria-label="Enter Website">Enter</button>
+    </div>
+
+    <!-- Your existing page content starts here -->
+    <header>
+        <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+            alt="School Logo" class="logo" />
+        <div class="title-container">
+            <h1>Amadlelo Aluhlaza Secondary School</h1>
+            <p id="motto">"Rising With Strength & Success"</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="vision.html">Vision & Mission</a>
+        <a href="staff.html">Staff</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contacts.html">Contact</a>
+        <a href="misconduct.html">Report Misconduct</a>
+        <span class="lang-toggle" onclick="toggleLang()">🌐 EN | ZU</span>
+    </nav>
+
+    <main class="hero">
+        <h2 id="heroHeading">Welcome to Amadlelo Aluhlaza Secondary School</h2>
+        <p id="heroText">Empowering learners through education, sustainability, and community engagement.</p>
+    </main>
+
+    <!-- Footer omitted for brevity -->
+
+    <script>
+        // Close popup on clicking Enter button
+        document.getElementById('enterSiteBtn').addEventListener('click', () => {
+            const popup = document.getElementById('welcomePopup');
+            popup.style.opacity = '0';
+            popup.style.pointerEvents = 'none';
+            document.body.classList.remove('popup-active');
+        });
+
+        // Your existing toggleLang function here...
+        const translations = {
+            en: {
+                motto: '"Rising With Strength & Success"',
+                heading: "Welcome to Amadlelo Aluhlaza Secondary School",
+                text: "Empowering learners through education, sustainability, and community engagement."
+            },
+            zu: {
+                motto: '"Ukukhulisa Izingqondo Eziluhlaza"',
+                heading: "Siyakwamukela e-Amadlelo Aluhlaza Secondary School",
+                text: "Ukuqeqesha abafundi ngolwazi, ukusimama kanye nokubambisana nomphakathi."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'zu' : 'en';
+            document.getElementById('motto').textContent = translations[currentLang].motto;
+            document.getElementById('heroHeading').textContent = translations[currentLang].heading;
+            document.getElementById('heroText').textContent = translations[currentLang].text;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parents Code of Conduct - Amadlelo Aluhlaza Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1e3a;
+      --green: #4a9e4a;
+      --white: #fff;
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f3f8;
+      margin: 0;
+      color: var(--navy);
+      position: relative;
+      min-block-size: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-block-size: 100vh;
+    }
+
+    /* Watermark behind main content */
+    main::before {
+      content: "";
+      position: fixed;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 300px;
+      block-size: 300px;
+      background: url("https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") no-repeat center;
+      background-size: contain;
+      opacity: 0.06;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header,
+    nav {
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    header {
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .logo {
+      block-size: 70px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0;
+      user-select: none;
+    }
+
+    nav {
+      gap: 2rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      border-block-start: 2px solid var(--green);
+    }
+
+    nav a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      padding: 0.4rem 0;
+      user-select: none;
+      transition: color var(--transition-speed) ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--green);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -5px;
+      inset-inline-start: 50%;
+      inline-size: 0;
+      block-size: 2px;
+      background: var(--green);
+      transition: width var(--transition-speed) ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a[aria-current="page"]::after {
+      inline-size: 60%;
+    }
+
+    main {
+      max-inline-size: 900px;
+      margin: 3rem auto 4rem;
+      background: var(--white);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 5;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      margin-block-end: 2rem;
+      text-align: center;
+      color: var(--navy);
+      user-select: none;
+    }
+
+    .lang-toggle {
+      text-align: end;
+      margin-block-end: 1.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--navy);
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-toggle.fading {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .card {
+      background: #f9fafc;
+      border: 1.5px solid #d2dce6;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-block-end: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      user-select: text;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    footer {
+      background: var(--white);
+      color: var(--navy);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-block-start: 2px solid var(--green);
+      user-select: none;
+    }
+
+    @media (max-inline-size: 600px) {
+
+      header,
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-block-end: 0.5rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://th.bing.com/th/id/OIP.HhwukEMf_YVi7PCw1B-KwAAAAA?w=198&h=238&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+      alt="School Logo" class="logo" />
+    <h2>Amadlelo Aluhlaza Secondary School</h2>
+    <p id="motto">"Rising With Strength & Success"</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision & Mission</a>
+    <a href="staff.html">Staff</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contacts.html">Contact</a>
+    <a href="code-of-conduct.html">Code of Conduct</a>
+    <a href="parents-code-of-conduct.html" aria-current="page">Parents Code of Conduct</a>
+  </nav>
+
+  <main>
+    <div class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 EN | ZU</div>
+
+    <h1 id="page-title">Parents Code of Conduct</h1>
+
+    <div id="content-list">
+      <!-- Cards will be injected here -->
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Amadlelo Aluhlaza Secondary School | All Rights Reserved
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Parents Code of Conduct",
+        content: [
+          "Support the school’s vision and mission to provide quality education.",
+          "Ensure learners attend school regularly and arrive on time.",
+          "Encourage learners to complete homework and participate actively in school activities.",
+          "Respect all staff, learners, and other parents in all communications.",
+          "Communicate concerns or complaints through appropriate channels respectfully.",
+          "Attend scheduled parent meetings and school events.",
+          "Support school policies and the learner code of conduct.",
+          "Ensure learners wear the correct school uniform with pride.",
+          "Promote a safe and positive learning environment at home and school."
+        ]
+      },
+      zu: {
+        pageTitle: "Ikhodi Yokuziphatha Yabazali",
+        content: [
+          "Sekela umbono nomsebenzi wesikole wokuhlinzeka ngemfundo esezingeni eliphezulu.",
+          "Qinisekisa ukuthi abafundi baya esikoleni njalo futhi befika ngesikhathi.",
+          "Khuthaza abafundi ukuthi benze umsebenzi wesikole futhi babambe iqhaza emisebenzini yesikole.",
+          "Hlonipha bonke abasebenzi, abafundi, nabanye abazali kuyo yonke imikhulumiswano.",
+          "Xhumana ngezinkinga noma izikhalazo ngezindlela ezifanele ngokuhlonipha.",
+          "Hamba emihlanganweni yabazali ehlelwe kanye nemicimbi yesikole.",
+          "Sekela izinqubomgomo zesikole nekhodi yokuziphatha yomfundi.",
+          "Qinisekisa ukuthi abafundi bagqoka ifomu lesikole ngokuzikhukhumeza.",
+          "Khuthaza indawo yokufunda ephephile nenhle ekhaya nasenkolweni."
+        ]
+      }
+    };
+
+    let currentLang = 'en';
+    const langToggle = document.getElementById('langToggle');
+    const contentList = document.getElementById('content-list');
+
+    function renderContent() {
+      contentList.innerHTML = '';
+      translations[currentLang].content.forEach(text => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.textContent = text;
+        contentList.appendChild(card);
+      });
+    }
+
+    function toggleLang() {
+      langToggle.classList.add('fading');
+      setTimeout(() => {
+        currentLang = currentLang === 'en' ? 'zu' : 'en';
+        document.getElementById('page-title').textContent = translations[currentLang].pageTitle;
+        renderContent();
+        langToggle.textContent = currentLang === 'en' ? '🌐 EN | ZU' : '🌐 ZU | EN';
+        langToggle.classList.remove('fading');
+      }, 300);
+    }
+
+    // Initial render
+    renderContent();
+  </script>
+</body>
+
+</html>
